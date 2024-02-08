@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>ФИО: {{ user.last_name }} {{ user.first_name }}</p>
+<p>Диагнозы: {{ user.diagnosis }}</p>
+<ul>
+    {% for exam in object_list %}
+    <li><p>{{ exam.content }}</p></li>
+    {% endfor %}
+</ul>
+
+<ul>
+{% for e in all_exams %}
+    <li>
+      <h4>{{ e.name }} от {{ e.data }}</h4>
+      {{ e.content }}
+    </li>
+{% endfor %}
+</ul>
+
+<ul>
+{% for a in all_ans %}
+    <li>
+      <h4>{{ a.name }} от {{ a.data }}</h4>
+      {{ a.value }}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

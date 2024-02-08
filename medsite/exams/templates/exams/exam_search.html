@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<hr>
+    <ul>
+      {% for e in searched_exams %}
+      <li>
+          <h3>{{ e.title }} от {{ e.data }}</h3>
+          <p>{{ e.content }}</p>
+          <p><a href="{% url 'exam' e.id %}">Просмотреть заключение</a></p>
+          {% if not forloop.last %}
+          <hr>
+          {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+{% endblock %}
